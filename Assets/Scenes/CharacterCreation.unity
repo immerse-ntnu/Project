@@ -189,7 +189,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &115151447
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78c912207e3c1cb4db5c33bcc6f446bf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 67df5095bbd2c3543861db01ba184023, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -633,9 +633,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteChanger: {fileID: 124718470}
   spriteArray:
-  - {fileID: 21300000, guid: 78c912207e3c1cb4db5c33bcc6f446bf, type: 3}
-  - {fileID: 21300000, guid: 0401ed0e42ba44345b7c701b8dc97428, type: 3}
-  - {fileID: 21300000, guid: 11fe8faca1fb33446a2add373c58acda, type: 3}
+  - {fileID: 21300000, guid: 67df5095bbd2c3543861db01ba184023, type: 3}
+  - {fileID: 21300000, guid: f9a3cebff36db34488217816c182549f, type: 3}
+  - {fileID: 21300000, guid: 22f3c9dbeafc0ba41a7c7e01ffc5806a, type: 3}
 --- !u!114 &437899160
 MonoBehaviour:
   m_ObjectHideFlags: 0
