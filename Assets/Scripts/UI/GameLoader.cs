@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class GameLoader : MonoBehaviour
 {
-    
     public void LoadMainMenu() // Load main menu buddy
     {
         SceneManager.LoadScene("MainMenu");
