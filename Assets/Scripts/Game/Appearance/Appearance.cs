@@ -19,5 +19,5 @@ public class Appearance : MonoBehaviour
         
         SR.sprite = images[skinColor]; // Change to corresponding skin
     }
-    
+
 }
