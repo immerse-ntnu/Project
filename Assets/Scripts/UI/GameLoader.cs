@@ -22,4 +22,9 @@ public class GameLoader : MonoBehaviour
     {
         SceneManager.LoadScene("CharacterCreation");
     }
+    
+    public void LoadGame() // Load scene for game!
+    {
+        SceneManager.LoadScene("Game");
+    }
 }
