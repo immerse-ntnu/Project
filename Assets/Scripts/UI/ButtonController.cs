@@ -43,20 +43,21 @@ public class ButtonController : MonoBehaviour
 
     public void UsePoints()
     {
-        if (currentIndex >= spriteArray.Length || characterStats.CurrentPoints <= 0)
-        {
-            currentIndex = currentIndex;
-            characterStats.CurrentPoints = 0;
-        }
-
-        else
-        {
             // Update skillPoints variable to reflect changes made in CharacterStats script
-
-            currentIndex++; // Add points to the skill
-            characterStats.CurrentPoints--;
-            spriteChanger.ChangeSprite(spriteArray[currentIndex]);
-        }
+        if (characterStats.CurrentPoints > 0)
+            {
+                currentIndex++; // Add points to specific skill
+                characterStats.CurrentPoints--; // Remove skillpoints
+                if (currentIndex < spriteArray.Length)
+                {
+                    spriteChanger.ChangeSprite(spriteArray[currentIndex]);
+                }
+                else
+                {
+                    currentIndex = spriteArray.Length;
+                    spriteChanger.ChangeSprite(spriteArray[currentIndex]);
+                }
+            }
     }
 
     public void MinusPoints()
@@ -67,7 +68,8 @@ public class ButtonController : MonoBehaviour
             currentIndex = 0;
         }
         
-        else if (characterStats.CurrentPoints < characterStats.MaxPoints)
+        else if (characterStats.CurrentPoints < characterStats.MaxPoints 
+        && characterStats.CurrentPoints >= 0 && currentIndex > 0)
         {
             currentIndex--;
             characterStats.CurrentPoints++;
@@ -77,12 +79,74 @@ public class ButtonController : MonoBehaviour
 
     public void PointCounter()
     {
-        currentIndex++;
-        if (currentIndex > 0)
-        {
-            spriteChanger.ChangeSprite(spriteArray[currentIndex]);
-        }
-            
+        spriteChanger.ChangeSprite(spriteArray[characterStats.CurrentPoints]);    
     }
 
+
+    
+    public void AddAttack()
+    {
+        if (characterStats.CurrentPoints > 0)
+        {
+            characterStats.AttackLevel++;
+        }
+    }
+
+    public void AddDefence()
+    {
+        if (characterStats.CurrentPoints > 0)
+        {
+            characterStats.DefenceLevel++;
+        }
+    }
+
+    public void AddStrength()
+    {
+        if (characterStats.CurrentPoints > 0)
+        {
+            characterStats.StengthLevel++;
+        }
+    }
+
+    public void AddStamina()
+    {
+        if (characterStats.CurrentPoints > 0)
+        {
+            characterStats.StaminaLevel++;
+        }
+    }
+
+    public void SubtractAttack()
+    {
+        if (characterStats.AttackLevel > 1)
+        {
+            characterStats.AttackLevel--;
+        }
+    }
+
+    public void SubtractDefence()
+    {
+        if (characterStats.DefenceLevel > 1)
+        {
+            characterStats.DefenceLevel--;
+        }
+    }
+
+    public void SubtractStrength()
+    {
+        if (characterStats.StengthLevel > 1)
+        {
+            characterStats.StengthLevel--;
+        }
+    }
+
+    public void SubtractStamina()
+    {
+        if (characterStats.StaminaLevel > 1)
+        {
+            characterStats.StaminaLevel--;
+
+        }
+    }
 }
+

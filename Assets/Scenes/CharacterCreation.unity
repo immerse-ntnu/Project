@@ -475,6 +475,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 437899159}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: SubtractDefence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &193930454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,6 +765,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 437899159}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: AddDefence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &266313840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,6 +913,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1474734289}
         m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
         m_MethodName: PointCounter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 437899159}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: AddAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1380,8 +1416,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00024414, y: 0}
-  m_SizeDelta: {x: 221.9402, y: 292.1796}
+  m_AnchoredPosition: {x: 1, y: 41}
+  m_SizeDelta: {x: 297.2207, y: 378.4759}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &437899159
 MonoBehaviour:
@@ -2190,12 +2226,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47fb3fa8114633f4a992fff729a45047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 1
-  strength: 1
-  defence: 1
-  stamina: 1
+  attack: 0
+  strength: 0
+  defence: 0
+  stamina: 0
   currentPoints: 0
-  skillPoints: 9
+  skillPoints: 0
   maxPoints: 0
 --- !u!1 &877770235
 GameObject:
@@ -2295,6 +2331,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1474734289}
         m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
         m_MethodName: PointCounter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 437899159}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: AddStamina
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2995,8 +3043,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00012207031, y: 1.2649841}
-  m_SizeDelta: {x: 221.94, y: 291.14}
+  m_AnchoredPosition: {x: 0.9997978, y: 42.6387}
+  m_SizeDelta: {x: 297.2204, y: 377.1293}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1362142872
 MonoBehaviour:
@@ -3202,16 +3250,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteChanger: {fileID: 1474734290}
   spriteArray:
-  - {fileID: -1655615372, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
-  - {fileID: 1629868298, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
-  - {fileID: 2127222694, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
-  - {fileID: 1275894261, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
-  - {fileID: -178493723, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
-  - {fileID: -2105569628, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
-  - {fileID: 669792163, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
-  - {fileID: 711317573, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
+  - {fileID: 1585432105, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
   - {fileID: 26769702, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
-  - {fileID: 0}
+  - {fileID: 711317573, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
+  - {fileID: 669792163, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
+  - {fileID: -2105569628, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
+  - {fileID: -178493723, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
+  - {fileID: 1275894261, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
+  - {fileID: 2127222694, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
+  - {fileID: 1629868298, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
+  - {fileID: -1655615372, guid: 836b1f14486c61447bc1258abcca651a, type: 3}
   characterStats: {fileID: 778421618}
 --- !u!114 &1474734290
 MonoBehaviour:
@@ -3324,6 +3372,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1474734289}
         m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
         m_MethodName: PointCounter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 437899159}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: AddStrength
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3902,7 +3962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1759077164
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4068,6 +4128,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1474734289}
         m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
         m_MethodName: PointCounter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 437899159}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: SubtractStrength
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4455,6 +4527,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1474734289}
         m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
         m_MethodName: PointCounter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 437899159}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: SubtractAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4943,6 +5027,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1474734289}
         m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
         m_MethodName: PointCounter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 437899159}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: SubtractStamina
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

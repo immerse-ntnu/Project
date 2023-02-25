@@ -317,6 +317,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Numbers_9
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 898
+        width: 104
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6540672f6b733b24f82ef38c237af87e
+      internalID: 1585432105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -335,6 +356,7 @@ TextureImporter:
       Numbers_8: 1629868298
       Numbers_2: 669792163
       Numbers_4: -1655615372
+      Numbers_9: 1585432105
       Numbers_1: 711317573
       Numbers_0: 26769702
   spritePackingTag: 
