@@ -5,7 +5,7 @@ public class SaveGameManager : MonoBehaviour
 {
     private static SaveGameManager instance;
 
-    public List<SaveableObject> SaveableObjects { get; private set; }
+    // public List<SaveableObject> SaveableObjects { get; private set; }
     
     public static SaveGameManager Instance
     {
