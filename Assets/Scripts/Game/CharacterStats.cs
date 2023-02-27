@@ -7,8 +7,6 @@ public class CharacterStats : MonoBehaviour
 {
     [SerializeField] private int attack, strength, defence, stamina; // Skills
     [SerializeField] private int currentPoints, skillPoints, maxPoints;
-
-    Dictionary<string, int> Skills = new Dictionary<string, int>();
     
     // Global max points player can hold
     public int MaxPoints
@@ -16,39 +14,36 @@ public class CharacterStats : MonoBehaviour
         get { return maxPoints; }
     }
 
-    // Global current skillpoints
+    // Global current skill points
     public int CurrentPoints
     {
-        get { return currentPoints; }
-        set { 
-            currentPoints = value;
-            skillPoints = currentPoints;
-            }
+        get => currentPoints;
+        set => currentPoints = value;
     }
-
+    
     // Player Attack Level
     public int AttackLevel
     {
-        get {return attack;}
-        set {attack = value;}
+        get => attack;
+        set => attack = value;
     }
 
-    public int StengthLevel
+    public int StrengthLevel
     {
-        get {return strength;}
-        set {strength = value;}
+        get => strength;
+        set => strength = value;
     }
 
     public int DefenceLevel
     {
-        get {return defence;}
-        set {defence = value;}
+        get => defence;
+        set => defence = value;
     }
 
     public int StaminaLevel
     {
-        get {return stamina;}
-        set {stamina = value;}
+        get => stamina;
+        set => stamina = value;
     }
 
     void Start()
@@ -66,7 +61,12 @@ public class CharacterStats : MonoBehaviour
 
     void Update()
     {
-        skillPoints = maxPoints - (attack + strength + defence + stamina);
+        attack = AttackLevel;
+        strength = StrengthLevel;
+        defence = DefenceLevel;
+        stamina = StaminaLevel;
 
+        skillPoints = maxPoints - (attack + strength + defence + stamina);
+        currentPoints = skillPoints;
     }
 }

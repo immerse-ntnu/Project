@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System;
-
+/*
 public class ButtonController : MonoBehaviour
 {
     public SpriteChanger spriteChanger;
@@ -11,7 +10,7 @@ public class ButtonController : MonoBehaviour
     
     // For Character Creation
     private int currentIndex, skillPoints;
-
+    
     // Reference to char stats
     public CharacterStats characterStats;
 
@@ -19,8 +18,9 @@ public class ButtonController : MonoBehaviour
     {
         // get reference to character stats script in scene
         characterStats = FindObjectOfType<CharacterStats>();
-    }   
-
+        currentIndex = 0;
+    }
+    
     public void OnLeftButtonClick()
     {
         currentIndex--;
@@ -43,21 +43,14 @@ public class ButtonController : MonoBehaviour
 
     public void UsePoints()
     {
-            // Update skillPoints variable to reflect changes made in CharacterStats script
-        if (characterStats.CurrentPoints > 0)
-            {
-                currentIndex++; // Add points to specific skill
-                characterStats.CurrentPoints--; // Remove skillpoints
-                if (currentIndex < spriteArray.Length)
-                {
-                    spriteChanger.ChangeSprite(spriteArray[currentIndex]);
-                }
-                else
-                {
-                    currentIndex = spriteArray.Length;
-                    spriteChanger.ChangeSprite(spriteArray[currentIndex]);
-                }
-            }
+        Debug.Log("Attack: " + characterStats.AttackLevel);
+        // Update skillPoints variable to reflect changes made in CharacterStats script
+        if (characterStats.CurrentPoints > 0 && currentIndex < spriteArray.Length)
+        {
+            characterStats.CurrentPoints--; // Remove skill points
+            currentIndex++; // Add points to specific skill
+            spriteChanger.ChangeSprite(spriteArray[currentIndex]);
+        }
     }
 
     public void MinusPoints()
@@ -69,11 +62,11 @@ public class ButtonController : MonoBehaviour
         }
         
         else if (characterStats.CurrentPoints < characterStats.MaxPoints 
-        && characterStats.CurrentPoints >= 0 && currentIndex > 0)
+        && characterStats.CurrentPoints > 0 && currentIndex > 0)
         {
             currentIndex--;
             characterStats.CurrentPoints++;
-            spriteChanger.ChangeSprite(spriteArray[currentIndex]);
+            spriteChanger.ChangeSprite(spriteArray[0]);
         }
     }
 
@@ -104,7 +97,7 @@ public class ButtonController : MonoBehaviour
     {
         if (characterStats.CurrentPoints > 0)
         {
-            characterStats.StengthLevel++;
+            characterStats.StrengthLevel++;
         }
     }
 
@@ -134,9 +127,9 @@ public class ButtonController : MonoBehaviour
 
     public void SubtractStrength()
     {
-        if (characterStats.StengthLevel > 1)
+        if (characterStats.StrengthLevel > 1)
         {
-            characterStats.StengthLevel--;
+            characterStats.StrengthLevel--;
         }
     }
 
@@ -150,3 +143,4 @@ public class ButtonController : MonoBehaviour
     }
 }
 
+*/

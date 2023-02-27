@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 836b1f14486c61447bc1258abcca651a
+guid: d29fcd2721c47694d8de860256cb6dec
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,19 +102,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -129,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Numbers_0
+      name: Numbers 1_0
       rect:
         serializedVersion: 2
-        x: 258
-        y: 1138
-        width: 84
-        height: 124
+        x: 72
+        y: 408
+        width: 216
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cceec3fa325b4c44597572f480f50e45
-      internalID: 26769702
+      spriteID: 8bcc1880f9d5ba943871a4c49be825f1
+      internalID: 335459969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_1
+      name: Numbers 1_1
       rect:
         serializedVersion: 2
-        x: 498
-        y: 1138
-        width: 104
-        height: 124
+        x: 384
+        y: 408
+        width: 216
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d910b16edd8d3ed498581e5ecf5f1bdf
-      internalID: 711317573
+      spriteID: 0de5481bd443cb44bb7e963580b5433c
+      internalID: 401170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_2
+      name: Numbers 1_2
       rect:
         serializedVersion: 2
-        x: 738
-        y: 1138
-        width: 104
-        height: 124
+        x: 696
+        y: 408
+        width: 216
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8a0ecbe9b95eb947b2d0f162e467da6
-      internalID: 669792163
+      spriteID: 3c0ac47e61687944da9d3fa52c96a310
+      internalID: -1297613678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_3
+      name: Numbers 1_3
       rect:
         serializedVersion: 2
-        x: 948
-        y: 1138
-        width: 104
-        height: 124
+        x: 1008
+        y: 408
+        width: 216
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5365c04add28bb4bbf926190d86072e
-      internalID: 2127222694
+      spriteID: 86136c0f2dbc7e3488f036c5c1964075
+      internalID: -1728900466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_4
+      name: Numbers 1_4
       rect:
         serializedVersion: 2
-        x: 1168
-        y: 1148
-        width: 104
-        height: 124
+        x: 1368
+        y: 408
+        width: 216
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8781b033fcb67c743b38518fc8bfafbc
-      internalID: -1655615372
+      spriteID: 2366d1b43dc68824b8ff83fb064e01af
+      internalID: -1754400170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_5
+      name: Numbers 1_5
       rect:
         serializedVersion: 2
-        x: 248
-        y: 898
-        width: 104
-        height: 124
+        x: 96
+        y: 48
+        width: 216
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58f2c6d2547320b4794c4838362405e3
-      internalID: -2105569628
+      spriteID: e65c429b2b4abda48aee9be3993586f4
+      internalID: 1701484501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_6
+      name: Numbers 1_6
       rect:
         serializedVersion: 2
-        x: 498
-        y: 898
-        width: 104
-        height: 124
+        x: 336
+        y: 48
+        width: 216
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af40830de4a62764c87be2ff5ad2acd7
-      internalID: -178493723
+      spriteID: 1782dcc26c9fb824196c278b829b7a10
+      internalID: -2009227266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_7
+      name: Numbers 1_7
       rect:
         serializedVersion: 2
-        x: 738
-        y: 898
-        width: 104
-        height: 124
+        x: 648
+        y: 48
+        width: 216
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,20 +278,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32e494e470f36c040857ad0e5351f49b
-      internalID: 1275894261
+      spriteID: 5139b35c52ec82b4196e3b2620ff92ca
+      internalID: -149113421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_8
+      name: Numbers 1_8
       rect:
         serializedVersion: 2
-        x: 958
-        y: 898
-        width: 104
-        height: 124
+        x: 960
+        y: 48
+        width: 216
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,20 +299,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c42f21984ffa770419452332f4ea86ac
-      internalID: 1629868298
+      spriteID: 50e5374bdb2ac984eb7cc7e318e2651c
+      internalID: -480025141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_9
+      name: Numbers 1_9
       rect:
         serializedVersion: 2
-        x: 1178
-        y: 898
-        width: 104
-        height: 124
+        x: 1296
+        y: 48
+        width: 216
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,8 +320,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6540672f6b733b24f82ef38c237af87e
-      internalID: 1585432105
+      spriteID: dc214860fda64e64ca3b148b77da0648
+      internalID: 1930228637
       vertices: []
       indices: 
       edges: []
@@ -349,16 +337,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Numbers_6: -178493723
-      Numbers_5: -2105569628
-      Numbers_7: 1275894261
-      Numbers_3: 2127222694
-      Numbers_8: 1629868298
-      Numbers_2: 669792163
-      Numbers_4: -1655615372
-      Numbers_9: 1585432105
-      Numbers_1: 711317573
-      Numbers_0: 26769702
+      Numbers 1_3: -1728900466
+      Numbers 1_1: 401170
+      Numbers 1_4: -1754400170
+      Numbers 1_6: -2009227266
+      Numbers 1_2: -1297613678
+      Numbers 1_5: 1701484501
+      Numbers 1_8: -480025141
+      Numbers 1_7: -149113421
+      Numbers 1_0: 335459969
+      Numbers 1_9: 1930228637
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
