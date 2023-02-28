@@ -6,37 +6,46 @@ public class CharacterButtons : MonoBehaviour
     public Attributes.SkillType skill;
     public Image skillLevelImage;
     public Sprite[] spriteArray;
+    public Attributes stats;
 
-    private Attributes stats;
-    private SpriteChanger spriteChanger;
-    
     private void Start()
     {
         stats = FindObjectOfType<Attributes>();
-        spriteChanger = new SpriteChanger(skillLevelImage, spriteArray);
+        UpdateSkillLevelImage();
+        Debug.Log("Points: " + stats.currentPoints);
+        Debug.Log("Skill level: " + stats.GetSkillLevel(skill));
     }
 
     public void IncrementSkillLevel()
     {
         if (stats.currentPoints > 0 && stats.GetSkillLevel(skill) < 9)
         {
-            stats.currentPoints--;
-            stats.ChangeSkillLevel(skill, 1); // Increment skill by 1
-            spriteChanger.ChangeSprite(stats.GetSkillLevel(skill)-1);
-            //Debug.Log("Points: " + stats.currentPoints);
-            //Debug.Log("Attack: " + stats.GetSkillLevel(Attributes.SkillType.Attack));
+            stats.ChangeSkillLevel(skill, 1, false); // Increment skill by 1
+            UpdateSkillLevelImage();
+            Debug.Log("Points: " + stats.currentPoints);
+            Debug.Log("Skill level: " + stats.GetSkillLevel(skill));
         }
     }
 
     public void DecrementSkillLevel()
     {
-        if (stats.currentPoints >= 0 && stats.currentPoints < stats.maxPoints && stats.GetSkillLevel(skill) > 1)
+        if (stats.currentPoints >= 0 && stats.GetSkillLevel(skill) > 1)
         {
-            stats.ChangeSkillLevel(skill, -1); // Decrement skill by 1
-            spriteChanger.ChangeSprite(stats.GetSkillLevel(skill)-1);
-            stats.currentPoints++;
-            // Debug.Log("Points: " + stats.currentPoints);
-            // Debug.Log("Attack: " + stats.GetSkillLevel(Attributes.SkillType.Attack));
+            stats.ChangeSkillLevel(skill, -1, true); // Increment skill by 1
+            UpdateSkillLevelImage();
+        }
+        
+        // Debug.Log("Points: " + stats.currentPoints);
+        // Debug.Log("Attack: " + stats.GetSkillLevel(Attributes.SkillType.Attack));
+
+    }
+    
+    private void UpdateSkillLevelImage()
+    {
+        int skillLevel = stats.GetSkillLevel(skill);
+        if (skillLevel >= 1 && skillLevel <= spriteArray.Length)
+        {
+            skillLevelImage.sprite = spriteArray[skillLevel - 1];
         }
     }
 }

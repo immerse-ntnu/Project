@@ -5,26 +5,28 @@ using UnityEngine.UI;
 
 public class PointCounter : MonoBehaviour
 {
-    private Attributes stats;
-    private SpriteChanger spriteChanger;
+    [SerializeField] private Attributes stats;
     [SerializeField] private Sprite[] numbers;
     [SerializeField] private Image image;
-    [SerializeField] private GameObject attributesObject; // Add a serialized field to hold the game object with the Attributes component
+    [SerializeField] private GameObject attributesObject;
+    
     
     private void Start()
     {
-        stats = attributesObject.GetComponent<Attributes>(); // Get the Attributes component from the specified game object
-        spriteChanger = new SpriteChanger(GetComponent<Image>(), numbers);
+        stats = attributesObject.GetComponent<Attributes>();
     }
 
-    private void ChangeScore()
+    private void UpdateScore()
     {
-        int index = numbers.Length - stats.currentPoints - 1;
-        spriteChanger.ChangeSprite(index);
+        int index = stats.currentPoints;
+        if (index >= 0 && index < numbers.Length) // Make sure the index is within the bounds of the array
+        {
+            image.sprite = numbers[index];
+        }
     }
     
     private void Update()
     {
-        ChangeScore();
+        UpdateScore();
     }
 }

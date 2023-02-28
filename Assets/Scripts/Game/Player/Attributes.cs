@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attributes : MonoBehaviour
+public class Attributes : MonoBehaviour, IDataPersistence
 {
     public enum SkillType
     {
@@ -31,11 +31,11 @@ public class Attributes : MonoBehaviour
 
     // Define max skill level
     public int maxSkillLevel = 99;
-
+    public int maxPoints = 13;
     // Define current skill points
-    public int currentPoints = 9;
+    public int currentPoints = 13;
 
-    public int maxPoints = 9;
+    
 
     private void Awake()
     {
@@ -47,13 +47,25 @@ public class Attributes : MonoBehaviour
     }
     
     // Function for changing skill levels
-    public void ChangeSkillLevel(SkillType skill, int amount)
+    public void ChangeSkillLevel(SkillType skill, int amount, bool Decrement)
     {
         // Check if current points are greater than 0 and skill level is less than max level
         if (currentPoints > 0 && skillLevels[skill] < maxSkillLevel)
         {
             // Add or subtract skill level
             skillLevels[skill] += amount;
+            currentPoints -= amount;
+        }
+        else if (Decrement == true && currentPoints >= 0)
+        {
+            // Add or subtract skill level
+            skillLevels[skill] += amount;
+            currentPoints -= amount;
+        }
+
+        if (skillLevels[skill] < 1)
+        {
+            skillLevels[skill] = 1;
         }
     }
 
@@ -62,4 +74,24 @@ public class Attributes : MonoBehaviour
     {
         return skillLevels[skill];
     }
+
+    private void Update()
+    {
+        if (currentPoints > maxPoints)
+        {
+            currentPoints = maxPoints;
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.currentPoints = data.currentPoints;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.currentPoints = this.currentPoints;
+    }
+    
+    
 }
