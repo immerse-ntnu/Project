@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿/*
+using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(Attributes))]
@@ -23,3 +24,4 @@ public class AttributesEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 }
+*/

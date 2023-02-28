@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,9 +33,9 @@ public class Attributes : MonoBehaviour
     public int maxSkillLevel = 99;
 
     // Define current skill points
-    public int currentPoints = 10;
+    public int currentPoints = 9;
 
-    public int maxPoints = 10;
+    public int maxPoints = 9;
 
     private void Awake()
     {
@@ -44,7 +45,7 @@ public class Attributes : MonoBehaviour
             skillLevels.Add(kvp.Key, kvp.Value);
         }
     }
-
+    
     // Function for changing skill levels
     public void ChangeSkillLevel(SkillType skill, int amount)
     {

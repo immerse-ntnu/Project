@@ -301,6 +301,8 @@ GameObject:
   - component: {fileID: 188592663}
   - component: {fileID: 188592665}
   - component: {fileID: 188592664}
+  - component: {fileID: 188592667}
+  - component: {fileID: 188592666}
   m_Layer: 5
   m_Name: Skin
   m_TagString: Untagged
@@ -368,6 +370,33 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &188592666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188592662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d508f70219688942be299f52e2d8af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appearanceSprites:
+  - {fileID: 21300000, guid: 67df5095bbd2c3543861db01ba184023, type: 3}
+  - {fileID: 21300000, guid: f9a3cebff36db34488217816c182549f, type: 3}
+  - {fileID: 21300000, guid: 22f3c9dbeafc0ba41a7c7e01ffc5806a, type: 3}
+  appearance: {fileID: 437899156}
+  leftButton: {fileID: 1556353843}
+  rightButton: {fileID: 2108427913}
+--- !u!222 &188592667
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188592662}
+  m_CullTransparentMesh: 1
 --- !u!1 &193930451
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,12 +428,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 359953523}
-  m_RootOrder: 2
+  m_Father: {fileID: 825368008}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 391.59998, y: 62.8}
+  m_AnchoredPosition: {x: 59.281555, y: 0.000011444092}
   m_SizeDelta: {x: 36.5909, y: 32.7629}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &193930453
@@ -451,33 +480,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 305829197}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: MinusPoints
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1474734289}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: PointCounter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 437899159}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: SubtractDefence
+      - m_Target: {fileID: 825368009}
+        m_TargetAssemblyTypeName: CharacterButtons, Assembly-CSharp
+        m_MethodName: DecrementSkillLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -689,12 +694,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 359953523}
-  m_RootOrder: 1
+  m_Father: {fileID: 825368008}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 332.31845, y: 62.8}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0.000011444092}
   m_SizeDelta: {x: 36.5909, y: 32.7629}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &266313839
@@ -741,33 +746,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 305829197}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: UsePoints
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1474734289}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: PointCounter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 437899159}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: AddDefence
+      - m_Target: {fileID: 825368009}
+        m_TargetAssemblyTypeName: CharacterButtons, Assembly-CSharp
+        m_MethodName: IncrementSkillLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -898,57 +879,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1742371885}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: UsePoints
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1474734289}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: PointCounter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 437899159}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: AddAttack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1884346364}
         m_TargetAssemblyTypeName: CharacterButtons, Assembly-CSharp
         m_MethodName: IncrementSkillLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1474734291}
-        m_TargetAssemblyTypeName: CharacterButtons, Assembly-CSharp
-        m_MethodName: pointCounter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1008,7 +941,7 @@ GameObject:
   - component: {fileID: 305829200}
   - component: {fileID: 305829199}
   - component: {fileID: 305829198}
-  - component: {fileID: 305829197}
+  - component: {fileID: 305829202}
   m_Layer: 5
   m_Name: Defence
   m_TagString: Untagged
@@ -1016,35 +949,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &305829197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305829196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 679d2b79a94f4113ae980d016b4bd45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteChanger: {fileID: 305829198}
-  m_SpriteRenderer: {fileID: 0}
-  spriteArray:
-  - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1297613678, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1728900466, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1754400170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 1701484501, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -2009227266, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -149113421, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -480025141, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 21300000, guid: d4eb530e7e9c97a48b6c3a41e137d42d, type: 3}
-  currentSprite: {fileID: 0}
-  currentIndex: 0
-  skillPoints: 0
-  characterStats: {fileID: 778421618}
 --- !u!114 &305829198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,6 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938248062c1c4592a9d9ee14544b44e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 305829199}
 --- !u!114 &305829199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,6 +1020,31 @@ RectTransform:
   m_AnchoredPosition: {x: 276, y: 59.8}
   m_SizeDelta: {x: 23.715, y: 38.0875}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &305829202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305829196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9811435c61a3acd43bf24604b77f7d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: 2
+  skillLevelImage: {fileID: 305829199}
+  spriteArray:
+  - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1297613678, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1728900466, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1754400170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 1701484501, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -2009227266, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -149113421, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -480025141, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 21300000, guid: d4eb530e7e9c97a48b6c3a41e137d42d, type: 3}
 --- !u!1 &359953522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,12 +1074,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1884346363}
-  - {fileID: 266313838}
-  - {fileID: 193930452}
-  - {fileID: 1516964337}
-  - {fileID: 1764041171}
-  - {fileID: 877770236}
-  - {fileID: 2110308071}
+  - {fileID: 825368008}
+  - {fileID: 1126943532}
+  - {fileID: 740522034}
   m_Father: {fileID: 1394738022}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1380,7 +1307,6 @@ GameObject:
   - component: {fileID: 437899157}
   - component: {fileID: 437899156}
   - component: {fileID: 437899160}
-  - component: {fileID: 437899159}
   m_Layer: 5
   m_Name: Character
   m_TagString: Untagged
@@ -1446,28 +1372,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1, y: 41}
   m_SizeDelta: {x: 297.2207, y: 378.4759}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &437899159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437899153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 679d2b79a94f4113ae980d016b4bd45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteChanger: {fileID: 437899160}
-  m_SpriteRenderer: {fileID: 0}
-  spriteArray:
-  - {fileID: 21300000, guid: 67df5095bbd2c3543861db01ba184023, type: 3}
-  - {fileID: 21300000, guid: f9a3cebff36db34488217816c182549f, type: 3}
-  - {fileID: 21300000, guid: 22f3c9dbeafc0ba41a7c7e01ffc5806a, type: 3}
-  currentSprite: {fileID: 0}
-  currentIndex: 0
-  skillPoints: 0
-  characterStats: {fileID: 0}
 --- !u!114 &437899160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1480,6 +1384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938248062c1c4592a9d9ee14544b44e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 437899156}
 --- !u!1 &440544644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,8 +1601,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1362142875}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 1933255763}
+        m_TargetAssemblyTypeName: Appearance, Assembly-CSharp
         m_MethodName: OnLeftButtonClick
         m_Mode: 1
         m_Arguments:
@@ -2100,6 +2005,70 @@ MonoBehaviour:
   skill: 0
   skillLevelImage: {fileID: 0}
   spriteArray: []
+--- !u!1 &740522033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 740522034}
+  - component: {fileID: 740522035}
+  m_Layer: 5
+  m_Name: Stamina
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &740522034
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740522033}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 877770236}
+  - {fileID: 2110308071}
+  m_Father: {fileID: 359953523}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 332.3186, y: -62.4}
+  m_SizeDelta: {x: 36.59088, y: 32.762897}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &740522035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740522033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9811435c61a3acd43bf24604b77f7d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: 5
+  skillLevelImage: {fileID: 2115792009}
+  spriteArray:
+  - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1297613678, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1728900466, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1754400170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 1701484501, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -2009227266, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -149113421, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -480025141, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 21300000, guid: d4eb530e7e9c97a48b6c3a41e137d42d, type: 3}
 --- !u!1 &744193874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2230,7 +2199,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 778421617}
-  - component: {fileID: 778421618}
   - component: {fileID: 778421619}
   m_Layer: 5
   m_Name: Character
@@ -2261,25 +2229,6 @@ RectTransform:
   m_AnchoredPosition: {x: 21.2, y: -80.277}
   m_SizeDelta: {x: 148.45, y: 277.4816}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &778421618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778421616}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47fb3fa8114633f4a992fff729a45047, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attack: 0
-  strength: 0
-  defence: 0
-  stamina: 0
-  currentPoints: 0
-  skillPoints: 0
-  maxPoints: 0
 --- !u!114 &778421619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2293,8 +2242,72 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSkillLevel: 99
-  currentPoints: 10
-  maxPoints: 10
+  currentPoints: 9
+  maxPoints: 9
+--- !u!1 &825368007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 825368008}
+  - component: {fileID: 825368009}
+  m_Layer: 5
+  m_Name: Defence
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &825368008
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825368007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 266313838}
+  - {fileID: 193930452}
+  m_Father: {fileID: 359953523}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 332.31845, y: 62.8}
+  m_SizeDelta: {x: 36.59088, y: 32.7629}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &825368009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825368007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9811435c61a3acd43bf24604b77f7d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: 2
+  skillLevelImage: {fileID: 305829199}
+  spriteArray:
+  - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1297613678, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1728900466, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1754400170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 1701484501, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -2009227266, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -149113421, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -480025141, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 21300000, guid: d4eb530e7e9c97a48b6c3a41e137d42d, type: 3}
 --- !u!1 &877770235
 GameObject:
   m_ObjectHideFlags: 0
@@ -2326,12 +2339,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 359953523}
-  m_RootOrder: 5
+  m_Father: {fileID: 740522034}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 332.3186, y: -62.4}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0}
   m_SizeDelta: {x: 36.5909, y: 32.7629}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &877770237
@@ -2378,33 +2391,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2115792007}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: UsePoints
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1474734289}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: PointCounter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 437899159}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: AddStamina
+      - m_Target: {fileID: 740522035}
+        m_TargetAssemblyTypeName: CharacterButtons, Assembly-CSharp
+        m_MethodName: IncrementSkillLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2464,7 +2453,7 @@ GameObject:
   - component: {fileID: 915944748}
   - component: {fileID: 915944747}
   - component: {fileID: 915944746}
-  - component: {fileID: 915944745}
+  - component: {fileID: 915944750}
   m_Layer: 5
   m_Name: Strength
   m_TagString: Untagged
@@ -2472,35 +2461,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &915944745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915944744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 679d2b79a94f4113ae980d016b4bd45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteChanger: {fileID: 915944746}
-  m_SpriteRenderer: {fileID: 0}
-  spriteArray:
-  - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1297613678, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1728900466, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1754400170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 1701484501, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -2009227266, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -149113421, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -480025141, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 21300000, guid: d4eb530e7e9c97a48b6c3a41e137d42d, type: 3}
-  currentSprite: {fileID: 0}
-  currentIndex: 0
-  skillPoints: 0
-  characterStats: {fileID: 778421618}
 --- !u!114 &915944746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2513,6 +2473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938248062c1c4592a9d9ee14544b44e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 915944747}
 --- !u!114 &915944747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2568,9 +2529,34 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 276, y: -0.0000076293945}
+  m_AnchoredPosition: {x: 276, y: -0}
   m_SizeDelta: {x: 23.715, y: 38.0875}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &915944750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915944744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9811435c61a3acd43bf24604b77f7d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: 1
+  skillLevelImage: {fileID: 915944747}
+  spriteArray:
+  - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1297613678, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1728900466, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1754400170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 1701484501, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -2009227266, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -149113421, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -480025141, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 21300000, guid: d4eb530e7e9c97a48b6c3a41e137d42d, type: 3}
 --- !u!1 &953618832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,6 +2982,70 @@ RectTransform:
   m_AnchoredPosition: {x: -383.57678, y: -114.2384}
   m_SizeDelta: {x: 42.8322, y: 50.9807}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1126943531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126943532}
+  - component: {fileID: 1126943533}
+  m_Layer: 5
+  m_Name: Strength
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1126943532
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126943531}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1516964337}
+  - {fileID: 1764041171}
+  m_Father: {fileID: 359953523}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 332.3186, y: 0.000015258789}
+  m_SizeDelta: {x: 36.59088, y: 32.7629}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1126943533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126943531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9811435c61a3acd43bf24604b77f7d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: 1
+  skillLevelImage: {fileID: 915944747}
+  spriteArray:
+  - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1297613678, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1728900466, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1754400170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 1701484501, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -2009227266, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -149113421, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -480025141, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 21300000, guid: d4eb530e7e9c97a48b6c3a41e137d42d, type: 3}
 --- !u!1 &1210118805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3084,7 +3134,6 @@ GameObject:
   - component: {fileID: 1362142873}
   - component: {fileID: 1362142872}
   - component: {fileID: 1362142874}
-  - component: {fileID: 1362142875}
   m_Layer: 5
   m_Name: DefaultEyes
   m_TagString: Untagged
@@ -3162,29 +3211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938248062c1c4592a9d9ee14544b44e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1362142875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362142870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 679d2b79a94f4113ae980d016b4bd45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteChanger: {fileID: 1362142874}
-  m_SpriteRenderer: {fileID: 0}
-  spriteArray:
-  - {fileID: 21300000, guid: 70801dbe0443ed743931bee9ddb57d9a, type: 3}
-  - {fileID: 21300000, guid: 8e06695bdfd745a4ca45de431d09fa34, type: 3}
-  - {fileID: 21300000, guid: ff7d4683b24df9d46b6bcdb3ee2e3999, type: 3}
-  - {fileID: 21300000, guid: 190f7c87de00a5a469c3b341dfb57fe1, type: 3}
-  currentSprite: {fileID: 0}
-  currentIndex: 0
-  skillPoints: 0
-  characterStats: {fileID: 0}
+  image: {fileID: 1362142872}
 --- !u!1 &1394738021
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,9 +3265,7 @@ GameObject:
   - component: {fileID: 1474734286}
   - component: {fileID: 1474734288}
   - component: {fileID: 1474734287}
-  - component: {fileID: 1474734290}
   - component: {fileID: 1474734289}
-  - component: {fileID: 1474734291}
   m_Layer: 5
   m_Name: Points
   m_TagString: Untagged
@@ -3315,63 +3340,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1474734285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 679d2b79a94f4113ae980d016b4bd45b, type: 3}
+  m_Script: {fileID: 11500000, guid: bd93d4331bbc93647bc9540a2e632b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteChanger: {fileID: 1474734290}
-  m_SpriteRenderer: {fileID: 0}
-  spriteArray:
-  - {fileID: 1930228637, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1297613678, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1728900466, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1754400170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 1701484501, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -2009227266, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  numbers:
   - {fileID: -149113421, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -480025141, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  currentSprite: {fileID: 0}
-  currentIndex: 0
-  skillPoints: 0
-  characterStats: {fileID: 778421618}
---- !u!114 &1474734290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474734285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 938248062c1c4592a9d9ee14544b44e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1474734291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474734285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9811435c61a3acd43bf24604b77f7d50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skill: 0
-  skillLevelImage: {fileID: 1474734287}
-  spriteArray:
-  - {fileID: 1930228637, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1297613678, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1728900466, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1754400170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 1701484501, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
   - {fileID: -2009227266, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -149113421, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -480025141, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 1701484501, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1754400170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1728900466, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1297613678, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 1930228637, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  image: {fileID: 1474734287}
+  attributesObject: {fileID: 778421616}
 --- !u!1 &1516964336
 GameObject:
   m_ObjectHideFlags: 0
@@ -3403,12 +3386,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 359953523}
-  m_RootOrder: 3
+  m_Father: {fileID: 1126943532}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 332.3186, y: 0.000015259}
+  m_AnchoredPosition: {x: 0.000030517578, y: -0}
   m_SizeDelta: {x: 36.5909, y: 32.7629}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516964338
@@ -3455,33 +3438,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 915944745}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: UsePoints
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1474734289}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: PointCounter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 437899159}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: AddStrength
+      - m_Target: {fileID: 1126943533}
+        m_TargetAssemblyTypeName: CharacterButtons, Assembly-CSharp
+        m_MethodName: IncrementSkillLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3612,8 +3571,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 437899159}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 188592666}
+        m_TargetAssemblyTypeName: Appearance, Assembly-CSharp
         m_MethodName: OnLeftButtonClick
         m_Mode: 1
         m_Arguments:
@@ -3745,8 +3704,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1362142875}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 1933255763}
+        m_TargetAssemblyTypeName: Appearance, Assembly-CSharp
         m_MethodName: OnRightButtonClick
         m_Mode: 1
         m_Arguments:
@@ -3940,7 +3899,6 @@ GameObject:
   - component: {fileID: 1742371888}
   - component: {fileID: 1742371887}
   - component: {fileID: 1742371886}
-  - component: {fileID: 1742371885}
   - component: {fileID: 1742371890}
   m_Layer: 5
   m_Name: Attack
@@ -3949,35 +3907,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1742371885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1742371884}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 679d2b79a94f4113ae980d016b4bd45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteChanger: {fileID: 1742371886}
-  m_SpriteRenderer: {fileID: 0}
-  spriteArray:
-  - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1297613678, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1728900466, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1754400170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 1701484501, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -2009227266, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -149113421, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -480025141, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 21300000, guid: d4eb530e7e9c97a48b6c3a41e137d42d, type: 3}
-  currentSprite: {fileID: 0}
-  currentIndex: 0
-  skillPoints: 0
-  characterStats: {fileID: 778421618}
 --- !u!114 &1742371886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3990,6 +3919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938248062c1c4592a9d9ee14544b44e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 1742371887}
 --- !u!114 &1742371887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4061,7 +3991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: 0
-  skillLevelImage: {fileID: 0}
+  skillLevelImage: {fileID: 1742371887}
   spriteArray:
   - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
   - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
@@ -4189,12 +4119,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 359953523}
-  m_RootOrder: 4
+  m_Father: {fileID: 1126943532}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 391.59998, y: 0.000011444}
+  m_AnchoredPosition: {x: 59.28125, y: -0}
   m_SizeDelta: {x: 36.5909, y: 32.7629}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1764041172
@@ -4241,33 +4171,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 915944745}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: MinusPoints
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1474734289}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: PointCounter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 437899159}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: SubtractStrength
+      - m_Target: {fileID: 1126943533}
+        m_TargetAssemblyTypeName: CharacterButtons, Assembly-CSharp
+        m_MethodName: DecrementSkillLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4640,57 +4546,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1742371885}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: MinusPoints
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1474734289}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: PointCounter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 437899159}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: SubtractAttack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1884346364}
         m_TargetAssemblyTypeName: CharacterButtons, Assembly-CSharp
         m_MethodName: DecrementSkillLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1474734291}
-        m_TargetAssemblyTypeName: CharacterButtons, Assembly-CSharp
-        m_MethodName: pointCounter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4899,6 +4757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1933255762}
+  - component: {fileID: 1933255763}
   m_Layer: 5
   m_Name: Eyes
   m_TagString: Untagged
@@ -4928,6 +4787,27 @@ RectTransform:
   m_AnchoredPosition: {x: -229.6233, y: -19.6045}
   m_SizeDelta: {x: 31.8322, y: 47.6284}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1933255763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933255761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d508f70219688942be299f52e2d8af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appearanceSprites:
+  - {fileID: 21300000, guid: e66175c590f2883459762430749fe347, type: 3}
+  - {fileID: 21300000, guid: 70801dbe0443ed743931bee9ddb57d9a, type: 3}
+  - {fileID: 21300000, guid: 8e06695bdfd745a4ca45de431d09fa34, type: 3}
+  - {fileID: 21300000, guid: ff7d4683b24df9d46b6bcdb3ee2e3999, type: 3}
+  - {fileID: 21300000, guid: 190f7c87de00a5a469c3b341dfb57fe1, type: 3}
+  appearance: {fileID: 1362142872}
+  leftButton: {fileID: 496470986}
+  rightButton: {fileID: 1590902116}
 --- !u!1 &1952057338
 GameObject:
   m_ObjectHideFlags: 0
@@ -5095,8 +4975,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 437899159}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+      - m_Target: {fileID: 188592666}
+        m_TargetAssemblyTypeName: Appearance, Assembly-CSharp
         m_MethodName: OnRightButtonClick
         m_Mode: 1
         m_Arguments:
@@ -5176,12 +5056,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 359953523}
-  m_RootOrder: 6
+  m_Father: {fileID: 740522034}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 391.59998, y: -62.399998}
+  m_AnchoredPosition: {x: 59.28125, y: 0.000011444092}
   m_SizeDelta: {x: 36.5909, y: 32.7629}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110308072
@@ -5228,33 +5108,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2115792007}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: MinusPoints
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1474734289}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: PointCounter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 437899159}
-        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: SubtractStamina
+      - m_Target: {fileID: 740522035}
+        m_TargetAssemblyTypeName: CharacterButtons, Assembly-CSharp
+        m_MethodName: DecrementSkillLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5314,7 +5170,7 @@ GameObject:
   - component: {fileID: 2115792010}
   - component: {fileID: 2115792009}
   - component: {fileID: 2115792008}
-  - component: {fileID: 2115792007}
+  - component: {fileID: 2115792012}
   m_Layer: 5
   m_Name: Stamina
   m_TagString: Untagged
@@ -5322,35 +5178,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2115792007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115792006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 679d2b79a94f4113ae980d016b4bd45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteChanger: {fileID: 2115792008}
-  m_SpriteRenderer: {fileID: 0}
-  spriteArray:
-  - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1297613678, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1728900466, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -1754400170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 1701484501, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -2009227266, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -149113421, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: -480025141, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
-  - {fileID: 21300000, guid: d4eb530e7e9c97a48b6c3a41e137d42d, type: 3}
-  currentSprite: {fileID: 0}
-  currentIndex: 0
-  skillPoints: 0
-  characterStats: {fileID: 778421618}
 --- !u!114 &2115792008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5363,6 +5190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938248062c1c4592a9d9ee14544b44e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 2115792009}
 --- !u!114 &2115792009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5421,3 +5249,28 @@ RectTransform:
   m_AnchoredPosition: {x: 276, y: -61}
   m_SizeDelta: {x: 23.715, y: 38.0875}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2115792012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115792006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9811435c61a3acd43bf24604b77f7d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: 5
+  skillLevelImage: {fileID: 2115792009}
+  spriteArray:
+  - {fileID: 335459969, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 401170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1297613678, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1728900466, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -1754400170, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 1701484501, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -2009227266, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -149113421, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: -480025141, guid: d29fcd2721c47694d8de860256cb6dec, type: 3}
+  - {fileID: 21300000, guid: d4eb530e7e9c97a48b6c3a41e137d42d, type: 3}
