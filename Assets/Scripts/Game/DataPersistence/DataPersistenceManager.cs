@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -49,13 +49,14 @@ public class DataPersistenceManager : MonoBehaviour
         {
             NewGame();
         }
-
+        // push the loaded data to all other scripts that need it
+        
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
             dataPersistenceObj.LoadData(gameData);
         }
+        Debug.Log("Loaded name: " + gameData.name);
         
-        // TODO - push the loaded data to all other scripts that need it
     }
     
     public void SaveGame()
@@ -65,10 +66,11 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.SaveData(ref gameData);
         }
-        
-        
         // TODO - save that data to a file using the data handler
         dataHandler.Save(gameData);
+        
+        Debug.Log("Loaded name: " + gameData.name);
+
     }
 
     private void OnApplicationQuit()
@@ -78,9 +80,12 @@ public class DataPersistenceManager : MonoBehaviour
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
+        //IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectOfType<MonoBehaviour>().OfType<IDataPersistence>();
+        
         IEnumerable<MonoBehaviour> allMonoBehaviours = FindObjectsOfType<MonoBehaviour>();
         IEnumerable<IDataPersistence> dataPersistenceObjects = allMonoBehaviours.OfType<IDataPersistence>();
+        
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
     
-}
+} 

@@ -15,7 +15,9 @@ public class Attributes : MonoBehaviour, IDataPersistence
         Agility,
         HealthPoints
     }
-    
+
+    public string ReadInput; // Character name
+
     private Dictionary<SkillType, int> initialSkillLevels = new Dictionary<SkillType, int>()
     {
         { SkillType.Strength, 1 },
@@ -26,26 +28,31 @@ public class Attributes : MonoBehaviour, IDataPersistence
         { SkillType.Attack, 1 },
         { SkillType.HealthPoints, 10 }
     };
+
     // Define skill levels
     private Dictionary<SkillType, int> skillLevels = new Dictionary<SkillType, int>();
 
     // Define max skill level
     public int maxSkillLevel = 99;
+
     public int maxPoints = 13;
+
     // Define current skill points
     public int currentPoints = 13;
 
+    // Input from input field
+    public ReadInput Input;
     
-
     private void Awake()
     {
+        Input = FindObjectOfType<ReadInput>();
         // Set skill levels to initial values
         foreach (var kvp in initialSkillLevels)
         {
             skillLevels.Add(kvp.Key, kvp.Value);
         }
     }
-    
+
     // Function for changing skill levels
     public void ChangeSkillLevel(SkillType skill, int amount, bool Decrement)
     {
@@ -68,6 +75,12 @@ public class Attributes : MonoBehaviour, IDataPersistence
             skillLevels[skill] = 1;
         }
     }
+    
+    
+    public void ChangeName()
+    {
+        this.name = Input.input;
+    }
 
     // Function for getting current skill level
     public int GetSkillLevel(SkillType skill)
@@ -85,13 +98,13 @@ public class Attributes : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        this.currentPoints = data.currentPoints;
+        // Load character name  
+        this.name = data.name;
     }
 
     public void SaveData(ref GameData data)
     {
-        data.currentPoints = this.currentPoints;
+        // Save character name
+        data.name = this.name;
     }
-    
-    
 }
