@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerScriptableObject : ScriptableObject
 {
     public int health = 100;
-    public int shield = 100;
+    public int armour = 100;
     public float balance = 250f;
     public PlayerAttackScriptableObject playerAttackType;
     
