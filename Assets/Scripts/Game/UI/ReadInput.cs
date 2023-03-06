@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class ReadInput : MonoBehaviour
 {
-    public string input;
+    public string Input { get; private set; }
 
     public void ReadStringInput(string s)
     {
-        input = s;
-        Debug.Log(input);
+        Input = s;
+        Debug.Log(Input);
     }
 }

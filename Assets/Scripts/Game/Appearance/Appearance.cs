@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Appearance : MonoBehaviour
 {
     public List<Sprite> appearanceSprites; // List of skin tone sprites
-    public Image appearance; // The Image component that displays the current skin tone sprite
+    public SpriteRenderer appearance; // The Image component that displays the current skin tone sprite
     public Button leftButton; // The left navigation button
     public Button rightButton; // The right navigation button
 

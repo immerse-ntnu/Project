@@ -6,62 +6,56 @@ using System.IO;
 
 public class FileDataHandler
 {
-    private string dataDirPath = "";
-    private string dataFileName = "";
+    private readonly string _dataDirPath;
+    private readonly string _dataFileName;
 
     public FileDataHandler(string dataDirPath, string dataFileName)
     {
-        this.dataDirPath = dataDirPath;
-        this.dataFileName = dataFileName;
+        _dataDirPath = dataDirPath;
+        _dataFileName = dataFileName;
     }
 
     public GameData Load()
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        var fullPath = Path.Combine(_dataDirPath, _dataFileName);
         GameData loadedData = null;
-        if (File.Exists(fullPath))
+        if (!File.Exists(fullPath)) 
+            return null;
+        try
         {
-            try
-            {
-                string dataToLoad = "";
-                using (FileStream stream = new FileStream(fullPath, FileMode.Open))
-                {
-                    using (StreamReader reader = new StreamReader(stream))
-                    {
-                        dataToLoad = reader.ReadToEnd();
-                    }
-                }
-                
-                // deserialize data from JSON to C# object
-                loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
+            var dataToLoad = "";
+            using (var stream = new FileStream(fullPath, FileMode.Open))
+            { 
+                using var reader = new StreamReader(stream);
+                dataToLoad = reader.ReadToEnd();
             }
-            catch (Exception e)
-            {
-                Debug.LogError("Error when trying to load data from file:" + fullPath + "\n" + e);
-            }
+            // deserialize data from JSON to C# object
+            loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
+            
         }
-
+        catch (Exception e)
+        {
+            Debug.LogError("Error when trying to load data from file:" + fullPath + "\n" + e);
+        }
+        
+        Debug.Log(fullPath);
         return loadedData;
     }
 
     public void Save(GameData data)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        var fullPath = Path.Combine(_dataDirPath, _dataFileName);
 
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
             
             // serialize game data object to JSON
-            string dataToStore = JsonUtility.ToJson(data, true);
+            var dataToStore = JsonUtility.ToJson(data, true);
 
-            using (FileStream stream = new FileStream(fullPath, FileMode.Create))
-            {
-                using (StreamWriter writer = new StreamWriter(stream))
-                {
-                    writer.Write(dataToStore);
-                }
-            }
+            using var stream = new FileStream(fullPath, FileMode.Create);
+            using var writer = new StreamWriter(stream);
+            writer.Write(dataToStore);
         }
         catch (Exception e)
         {

@@ -1,23 +1,32 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
-public class GameData : MonoBehaviour
+public class GameData
 {
-    [SerializeField] private Attributes stats;
-    [SerializeField] private Attributes.SkillType skill;
-    private ReadInput input;
     public int currentPoints;
     public string name;
+    public int Strength;
+    public int Defence;
+    public int Magic;
+    public int Ranged;
+    public int Agility;
+    public int Attack;
+    public int HealthPoints;
     
-    private void Start()
-    {
-        stats = FindObjectOfType<Attributes>();
-        input = FindObjectOfType<ReadInput>();
-    }
 
     public GameData()
     {
-        this.currentPoints = 9;
-        this.name = "";
+        // Current points
+        currentPoints = 9;
+        
+        // Character name
+        name = "N/A";
+        
+        // Character skill levels
     } 
 }

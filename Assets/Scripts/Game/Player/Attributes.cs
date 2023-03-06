@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Attributes : MonoBehaviour, IDataPersistence
 {
@@ -15,10 +17,8 @@ public class Attributes : MonoBehaviour, IDataPersistence
         Agility,
         HealthPoints
     }
-
-    public string ReadInput; // Character name
-
-    private Dictionary<SkillType, int> initialSkillLevels = new Dictionary<SkillType, int>()
+    
+    private Dictionary<SkillType, int> initialSkillLevels = new()
     {
         { SkillType.Strength, 1 },
         { SkillType.Defence, 1 },
@@ -30,7 +30,7 @@ public class Attributes : MonoBehaviour, IDataPersistence
     };
 
     // Define skill levels
-    private Dictionary<SkillType, int> skillLevels = new Dictionary<SkillType, int>();
+    private Dictionary<SkillType, int> skillLevels = new();
 
     // Define max skill level
     public int maxSkillLevel = 99;
@@ -39,13 +39,21 @@ public class Attributes : MonoBehaviour, IDataPersistence
 
     // Define current skill points
     public int currentPoints = 13;
-
-    // Input from input field
-    public ReadInput Input;
     
+    public TMP_InputField nameField;
+ 
+    // Player name variable and property to access
+    // it from other scripts.
+    private string _playerName;
+    
+    public string PlayerName
+    {
+        get => _playerName;
+        set => Debug.Log("You are not allowed to set the player name like that");
+    }
+
     private void Awake()
     {
-        Input = FindObjectOfType<ReadInput>();
         // Set skill levels to initial values
         foreach (var kvp in initialSkillLevels)
         {
@@ -54,7 +62,7 @@ public class Attributes : MonoBehaviour, IDataPersistence
     }
 
     // Function for changing skill levels
-    public void ChangeSkillLevel(SkillType skill, int amount, bool Decrement)
+    public void ChangeSkillLevel(SkillType skill, int amount, bool decrement)
     {
         // Check if current points are greater than 0 and skill level is less than max level
         if (currentPoints > 0 && skillLevels[skill] < maxSkillLevel)
@@ -63,7 +71,7 @@ public class Attributes : MonoBehaviour, IDataPersistence
             skillLevels[skill] += amount;
             currentPoints -= amount;
         }
-        else if (Decrement == true && currentPoints >= 0)
+        else if (decrement == true && currentPoints >= 0)
         {
             // Add or subtract skill level
             skillLevels[skill] += amount;
@@ -74,12 +82,6 @@ public class Attributes : MonoBehaviour, IDataPersistence
         {
             skillLevels[skill] = 1;
         }
-    }
-    
-    
-    public void ChangeName()
-    {
-        this.name = Input.input;
     }
 
     // Function for getting current skill level
@@ -96,15 +98,26 @@ public class Attributes : MonoBehaviour, IDataPersistence
         }
     }
 
+    //Use this on a "Submit" button to set the playerName variable.
+    public void SubmitName()
+    {
+        if(string.IsNullOrEmpty(nameField.text) == false)
+        {
+            _playerName = nameField.text;
+        }
+    }
+    
     public void LoadData(GameData data)
     {
-        // Load character name  
-        this.name = data.name;
+        // Load character name
+        this._playerName = data.name;
+        this.currentPoints = data.currentPoints;
     }
 
     public void SaveData(ref GameData data)
     {
         // Save character name
-        data.name = this.name;
+        data.name = this._playerName;
+        data.currentPoints = this.currentPoints;
     }
 }

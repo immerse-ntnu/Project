@@ -6,14 +6,13 @@ using System.Collections.Generic;
 public class DataPersistenceManager : MonoBehaviour
 {
     [Header("File Storage Config")] [SerializeField]
-    
     private string fileName;
     
-    private GameData gameData;
+    private GameData _gameData;
     
-    private List<IDataPersistence> dataPersistenceObjects;
+    private List<IDataPersistence> _dataPersistenceObjects;
 
-    private FileDataHandler dataHandler;
+    private FileDataHandler _dataHandler;
     public static DataPersistenceManager instance { get; private set; }
     
     private void Awake()
@@ -28,55 +27,52 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void Start()
     {
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);  
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        _dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);  
+        _dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();    
     }
     
     
     public void NewGame()
     {
-        this.gameData = new GameData();
+        _gameData = new GameData();
     }
     
     public void LoadGame()
     {
         // TODO - Load any saved data from a file using a data handler
-        this.gameData = dataHandler.Load();
+        _gameData = _dataHandler.Load();
         
         
-        if (this.gameData == null)
+        if (_gameData == null)
         {
             NewGame();
         }
         // push the loaded data to all other scripts that need it
         
-        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+        foreach (IDataPersistence dataPersistenceObj in _dataPersistenceObjects)
         {
-            dataPersistenceObj.LoadData(gameData);
+            dataPersistenceObj.LoadData(_gameData);
         }
-        Debug.Log("Loaded name: " + gameData.name);
-        
+        Debug.Log("Loaded name: " + _gameData.name);
+        Debug.Log("Loaded points: " + _gameData.currentPoints);
     }
     
     public void SaveGame()
     {
         // TODO - pass the data to other scripts so they can update it        
-        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+        foreach (IDataPersistence dataPersistenceObj in _dataPersistenceObjects)
         {
-            dataPersistenceObj.SaveData(ref gameData);
+            dataPersistenceObj.SaveData(ref _gameData);
         }
         // TODO - save that data to a file using the data handler
-        dataHandler.Save(gameData);
+        _dataHandler.Save(_gameData);
         
-        Debug.Log("Loaded name: " + gameData.name);
+        Debug.Log("Loaded name: " + _gameData.name);
 
     }
 
-    private void OnApplicationQuit()
-    {
-        SaveGame();
-    }
+    private void OnApplicationQuit() => SaveGame();
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
