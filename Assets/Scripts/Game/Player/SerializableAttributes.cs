@@ -1,27 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class SerializableAttributes
 {
-    public int strength;
-    public int defence;
-    public int magic;
-    public int ranged;
-    public int agility;
-    public int attack;
-    public int healthPoints;
+    public Dictionary<Attributes.SkillType, int> initialSkillLevels;
 
-    public SerializableAttributes(Dictionary<Attributes.SkillType, int> dict)
+    public SerializableAttributes(Dictionary<Attributes.SkillType, int> skillLevels)
     {
-        strength = dict[Attributes.SkillType.Strength];
-        defence = dict[Attributes.SkillType.Defence];
-        magic = dict[Attributes.SkillType.Magic];
-        ranged = dict[Attributes.SkillType.Ranged];
-        agility = dict[Attributes.SkillType.Agility];
-        attack = dict[Attributes.SkillType.Attack];
-        healthPoints = dict[Attributes.SkillType.HealthPoints];
+        initialSkillLevels = skillLevels;
     }
-    
-};
-    
+}
+
+public class JsonSaveLoad : MonoBehaviour
+{
+    private SerializableAttributes  skillLevelsData;
+
+    private void Awake()
+    {
+        skillLevelsData = new SerializableAttributes (Attributes.initialSkillLevels);
+    }
+
+    private void SaveJson()
+    {
+        string json = JsonUtility.ToJson(skillLevelsData);
+        System.IO.File.WriteAllText(Application.dataPath + "/SkillLevels.json", json);
+    }
+}

@@ -5,12 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Project.unity
-    guid: af01df860d302004a9bf02ccc5686fa2
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 4c78f27befc81fa45b4a8036e707809d
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: f67877c3d44aa8545b94a583dfbd260b
+  - enabled: 1
+    path: Assets/Scenes/Selection.unity
+    guid: 4b36b60785a29d44684a9aff06b1f220
+  - enabled: 1
+    path: Assets/Scenes/CharacterCreation.unity
+    guid: dac28afbe743d8f429f3bda2547ddcd5
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 8b803678c0df6490da2367535063ef8f
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 56cb24eb7ebe13d4285a041412499012, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: d7b72b4dd26d85849a04cf35afbb46ca, type: 2}

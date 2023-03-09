@@ -7,6 +7,7 @@ TagManager:
   - CharacterButton
   - Blurred
   - Character
+  - PlayerSprite
   layers:
   - Default
   - TransparentFX

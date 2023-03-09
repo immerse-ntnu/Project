@@ -8,25 +8,41 @@ using UnityEngine.UI;
 [System.Serializable]
 public class GameData
 {
-    public int currentPoints;
-    public string name;
-    public int Strength;
-    public int Defence;
-    public int Magic;
-    public int Ranged;
-    public int Agility;
-    public int Attack;
-    public int HealthPoints;
-    
+    protected int CurrentPoints;
+    protected string Name;
+    public List<Sprite> appearance;
+    public Dictionary<string, int> SavedSkill = new() {
+        { "Attack", 1 },
+        { "Strength", 1 },
+        { "Defence", 1 },
+        { "Magic", 1 },
+        { "Ranged", 1 },
+        { "Agility", 1 },
+        { "Charisma", 1},
+        { "HealthPoints", 10}
+    };
 
+        // Constructor
     public GameData()
     {
         // Current points
-        currentPoints = 9;
+        CurrentPoints = 9;
         
         // Character name
-        name = "N/A";
+        Name = "Character Name";
         
-        // Character skill levels
+        // Character skill levels as dictionary
+        var savedSkill = new Dictionary<string, int>()
+        {
+            { "Attack", 1 },
+            { "Strength", 1 },
+            { "Defence", 1 },
+            { "Magic", 1 },
+            { "Ranged", 1 },
+            { "Agility", 1 },
+            { "Charisma", 1},
+            { "HealthPoints", 10}
+        };
+    
     } 
 }

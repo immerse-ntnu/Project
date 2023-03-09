@@ -9,6 +9,7 @@ public class Appearance : MonoBehaviour
     public SpriteRenderer appearance; // The Image component that displays the current skin tone sprite
     public Button leftButton; // The left navigation button
     public Button rightButton; // The right navigation button
+    public Button savePlayer;
 
     private int currentSpriteIndex; // The index of the current skin tone sprite in the list
 
@@ -48,4 +49,16 @@ public class Appearance : MonoBehaviour
         // Update the skin tone image with the new sprite
         appearance.sprite = appearanceSprites[currentSpriteIndex];
     }
+    private void OnSaveButtonClick()
+    {
+        // Create a new instance of the GameData class to store the sprite data
+        GameData data = new GameData();
+
+        // Send the current sprite to the game data
+        data.appearance.Add(appearanceSprites[currentSpriteIndex]);
+
+        // Call the SaveSprite method to save the data
+    }
+
+
 }

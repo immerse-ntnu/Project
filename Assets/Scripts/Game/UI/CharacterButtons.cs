@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
 public class CharacterButtons : MonoBehaviour
@@ -7,7 +8,9 @@ public class CharacterButtons : MonoBehaviour
     public Image skillLevelImage;
     public Sprite[] spriteArray;
     public Attributes stats;
-
+    public new Transform transform;
+    [SerializeField] private GameObject player;
+    
     private void Start()
     {
         stats = FindObjectOfType<Attributes>();
@@ -26,6 +29,23 @@ public class CharacterButtons : MonoBehaviour
             Debug.Log("Skill level: " + stats.GetSkillLevel(skill));
         }
     }
+
+    public void AddSize()
+    {
+        if (player.transform.localScale.x < 1.3 && player.transform.localScale.y < 1.5)
+        {
+            player.transform.localScale += new Vector3(0.05f, 0.05f, 0f);
+        }
+    }
+    
+    public void RemoveSize()
+    {
+        if (player.transform.localScale.x > 1.0 && player.transform.localScale.y > 1.0)
+        {
+            player.transform.localScale -= new Vector3(0.05f, 0.05f, 0f);
+        }
+    }
+    
 
     public void DecrementSkillLevel()
     {
