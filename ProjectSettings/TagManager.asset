@@ -8,6 +8,7 @@ TagManager:
   - Blurred
   - Character
   - PlayerSprite
+  - Enemy
   layers:
   - Default
   - TransparentFX

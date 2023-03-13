@@ -8,56 +8,74 @@ using System.Collections.Generic;
 
  public class DataPersistenceManager : MonoBehaviour
 {
-    [Header("File Storage Config")] [SerializeField]
-    private string fileName;
+    [Header("File Storage Config")]
+    [SerializeField] private string fileName;
+
+    [SerializeField] private bool initializeDataIfNull = false;
     
     private GameData _gameData;
     
     private List<IDataPersistence> _dataPersistenceObjects;
 
     private FileDataHandler _dataHandler;
+    private  Attributes _player;
     
-    public static DataPersistenceManager instance { get; private set; }
+    public static DataPersistenceManager Instance { get; private set; }
     
     private void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         { 
             Destroy(gameObject);
             return;
         }
         
-        instance = this;
-        _dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);  
-        DontDestroyOnLoad(gameObject);
+        Instance = this;
         
+        // ReSharper disable once HeapView.ObjectAllocation.Evident
+        _dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        
+        _player = FindObjectOfType<Attributes>();
+        
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()
     {
+        // ReSharper disable once HeapView.ObjectAllocation.Possible
+        // ReSharper disable once HeapView.DelegateAllocation
         SceneManager.sceneLoaded += OnSceneLoaded;
+        
+        // ReSharper disable once HeapView.ObjectAllocation.Possible
+        // ReSharper disable once HeapView.DelegateAllocation
         SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
     
     private void OnDisable()
     {
+        // ReSharper disable once HeapView.ObjectAllocation.Possible
+        // ReSharper disable once HeapView.DelegateAllocation
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        
+        // ReSharper disable once HeapView.ObjectAllocation.Possible
+        // ReSharper disable once HeapView.DelegateAllocation
         SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("OnSceneLoaded");
         _dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();  
     }
 
-    public void OnSceneUnloaded(Scene scene)
+    private void OnSceneUnloaded(Scene scene)
     {
         Debug.Log("OnSceneUnLoaded");
         SaveGame();
     }
     
+    // ReSharper disable once HeapView.ObjectAllocation.Evident
     public void NewGame() => _gameData = new GameData();
 
     public void LoadGame()
@@ -65,23 +83,28 @@ using System.Collections.Generic;
         // TODO - Load any saved data from a file using a data handler
         _gameData = _dataHandler.Load();
 
+        if (_gameData == null && initializeDataIfNull)
+        {
+            NewGame();
+        }
+        
         if (_gameData == null)
         {
             return;
         }
         
         // push the loaded data to all other scripts that need it
-        
-        foreach (IDataPersistence dataPersistenceObj in _dataPersistenceObjects)
+        foreach (var dataPersistenceObj in _dataPersistenceObjects)
         {
             dataPersistenceObj.LoadData(_gameData);
         }
     }
-    
-    public void SaveGame()
+
+    private void SaveGame()
     {
         if (_gameData == null)
         {
+            Debug.LogWarning("No data was found. A new game needs to be started before data can be saved. ");
             return;
         }
         
@@ -90,20 +113,17 @@ using System.Collections.Generic;
         {
             dataPersistenceObj.SaveData(ref _gameData);
         }
-        // TODO - save that data to a file using the data handler
+        
+        // save that data to a file using the data handler
         _dataHandler.Save(_gameData);
-
     }
 
     private void OnApplicationQuit() => SaveGame();
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
-        //IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectOfType<MonoBehaviour>().OfType<IDataPersistence>();
-        
         IEnumerable<MonoBehaviour> allMonoBehaviours = FindObjectsOfType<MonoBehaviour>();
         IEnumerable<IDataPersistence> dataPersistenceObjects = allMonoBehaviours.OfType<IDataPersistence>();
-        
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
 

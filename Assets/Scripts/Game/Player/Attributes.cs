@@ -1,12 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class Attributes : MonoBehaviour, IDataPersistence
+
+public class Attributes : MonoBehaviour
 {
     // Player Skills
     public enum SkillType
@@ -49,7 +48,7 @@ public class Attributes : MonoBehaviour, IDataPersistence
     };
 
     // Define skill levels
-    protected Dictionary<SkillType, int> skillLevels = new();
+    public Dictionary<SkillType, int> skillLevels = new();
 
     // Define max skill level
     public int maxSkillLevel = 99;
@@ -59,11 +58,11 @@ public class Attributes : MonoBehaviour, IDataPersistence
 
     // Define current skill points
     public int currentPoints = 9;
-    
+
     public TMP_InputField nameField;
  
     // Player name variable and property to access it from other scripts.
-    private string _playerName;
+    public string _playerName;
     public string PlayerName
     {
         get => _playerName;
@@ -76,6 +75,11 @@ public class Attributes : MonoBehaviour, IDataPersistence
         foreach (var kvp in initialSkillLevels)
         {
             skillLevels.Add(kvp.Key, kvp.Value);
+        }
+
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
+        {
+            gameObject.transform.position = new Vector3(0f, 0f, 0f);
         }
     }
 
@@ -127,16 +131,28 @@ public class Attributes : MonoBehaviour, IDataPersistence
     
     public void LoadData(GameData data)
     {
-        // Load character name
-        // this._playerName = data.name;
-        // this.currentPoints = data.currentPoints;
+        // Load player scaling
+        var localScale = data.sizeOfPlayer;
+        gameObject.transform.localScale = new Vector3(localScale.x, localScale.y, localScale.z);
+        
+        // Load skills
+        skillLevels = data.Skills;
+        
+        // Load player name
+        _playerName = data.Name;
     }
-
     
     public void SaveData(ref GameData data)
     {
-        // Save character name
-        //data.name = this._playerName;
-        //data.currentPoints = this.currentPoints;
+        // Save players scaling
+        var localScale = this.gameObject.transform.localScale;
+        data.sizeOfPlayer = new Vector3(localScale.x, localScale.y, localScale.z);
+                    
+        // Save player skills
+        data.Skills = skillLevels;
+        
+        // Save player name
+        data.Name = _playerName;
     }
+    
 }

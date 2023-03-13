@@ -11,6 +11,7 @@ public class CharacterButtons : MonoBehaviour
     public new Transform transform;
     [SerializeField] private GameObject player;
     
+    /*
     private void Start()
     {
         stats = FindObjectOfType<Attributes>();
@@ -18,7 +19,9 @@ public class CharacterButtons : MonoBehaviour
         Debug.Log("Points: " + stats.currentPoints);
         Debug.Log("Skill level: " + stats.GetSkillLevel(skill));
     }
-
+    */
+    
+    /*
     public void IncrementSkillLevel()
     {
         if (stats.currentPoints > 0 && stats.GetSkillLevel(skill) < 9)
@@ -29,24 +32,41 @@ public class CharacterButtons : MonoBehaviour
             Debug.Log("Skill level: " + stats.GetSkillLevel(skill));
         }
     }
+    */
 
-    public void AddSize()
+    public void PlusWidth()
     {
-        if (player.transform.localScale.x < 1.3 && player.transform.localScale.y < 1.5)
+        if (player.transform.localScale.x < 1.1)
         {
-            player.transform.localScale += new Vector3(0.05f, 0.05f, 0f);
+            player.transform.localScale += new Vector3(0.05f, 0f, 0f);
         }
     }
     
-    public void RemoveSize()
+    public void MinusWidth()
     {
-        if (player.transform.localScale.x > 1.0 && player.transform.localScale.y > 1.0)
+        if (player.transform.localScale.x > 0.9)
         {
-            player.transform.localScale -= new Vector3(0.05f, 0.05f, 0f);
+            player.transform.localScale -= new Vector3(0.05f, 0f, 0f);
         }
     }
     
-
+    public void PlusHeight()
+    {
+        if (player.transform.localScale.y < 1.1)
+        {
+            player.transform.localScale += new Vector3(0f, 0.05f, 0f);
+        }
+    }
+    
+    public void MinusHeight()
+    {
+        if (player.transform.localScale.y > 0.9)
+        {
+            player.transform.localScale -= new Vector3(0f, 0.05f, 0f);
+        }
+    }
+    
+    /*
     public void DecrementSkillLevel()
     {
         if (stats.currentPoints >= 0 && stats.GetSkillLevel(skill) > 1)
@@ -59,7 +79,9 @@ public class CharacterButtons : MonoBehaviour
         // Debug.Log("Attack: " + stats.GetSkillLevel(Attributes.SkillType.Attack));
 
     }
+    */
     
+    /*
     private void UpdateSkillLevelImage()
     {
         int skillLevel = stats.GetSkillLevel(skill);
@@ -68,4 +90,5 @@ public class CharacterButtons : MonoBehaviour
             skillLevelImage.sprite = spriteArray[skillLevel - 1];
         }
     }
+    */
 }

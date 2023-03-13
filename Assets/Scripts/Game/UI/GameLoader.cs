@@ -1,9 +1,16 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using UnityEngine.Serialization;
+using UnityEngine.SocialPlatforms;
+
 
 public class GameLoader : MonoBehaviour
 {
+    private GameData _gameData;
+
+    private DataPersistenceManager _dataManager;
+
     public void LoadMainMenu() // Load main menu buddy
     {
         SceneManager.LoadScene("MainMenu");
@@ -17,14 +24,9 @@ public class GameLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Settings");
     }
-    
-    public void LoadCreation() // Load scene for character creation menu
+
+    public void OnSaveButtonClicked()
     {
-        SceneManager.LoadScene("CharacterCreation");
-    }
-    
-    public void LoadGame() // Load scene for game!
-    {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadSceneAsync("Game");
     }
 }

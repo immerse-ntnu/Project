@@ -37,7 +37,6 @@ public class FileDataHandler
         {
             Debug.LogError("Error when trying to load data from file:" + fullPath + "\n" + e);
         }
-        
         Debug.Log(fullPath);
         return loadedData;
     }
@@ -48,12 +47,14 @@ public class FileDataHandler
 
         try
         {
-            Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
+            Directory.CreateDirectory(Path.GetDirectoryName(fullPath) ?? string.Empty);
             
             // serialize game data object to JSON
             var dataToStore = JsonUtility.ToJson(data, true);
 
+            // ReSharper disable once HeapView.ObjectAllocation.Evident
             using var stream = new FileStream(fullPath, FileMode.Create);
+            // ReSharper disable once HeapView.ObjectAllocation.Evident
             using var writer = new StreamWriter(stream);
             writer.Write(dataToStore);
         }

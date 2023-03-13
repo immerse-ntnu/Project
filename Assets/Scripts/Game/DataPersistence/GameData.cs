@@ -8,21 +8,17 @@ using UnityEngine.UI;
 [System.Serializable]
 public class GameData
 {
-    protected int CurrentPoints;
-    protected string Name;
-    public List<Sprite> appearance;
-    public Dictionary<string, int> SavedSkill = new() {
-        { "Attack", 1 },
-        { "Strength", 1 },
-        { "Defence", 1 },
-        { "Magic", 1 },
-        { "Ranged", 1 },
-        { "Agility", 1 },
-        { "Charisma", 1},
-        { "HealthPoints", 10}
-    };
+    protected int CurrentPoints; // Current skill points
+    
+    public string Name; // Name of player
 
-        // Constructor
+    public Vector3 sizeOfPlayer; // Size of player
+    
+    // public List<Sprite> appearance; // Player sprite array appearance
+
+    public Dictionary<Attributes.SkillType, int> Skills;
+
+    // Constructor
     public GameData()
     {
         // Current points
@@ -32,17 +28,20 @@ public class GameData
         Name = "Character Name";
         
         // Character skill levels as dictionary
-        var savedSkill = new Dictionary<string, int>()
+        Skills = new Dictionary<Attributes.SkillType, int>()
         {
-            { "Attack", 1 },
-            { "Strength", 1 },
-            { "Defence", 1 },
-            { "Magic", 1 },
-            { "Ranged", 1 },
-            { "Agility", 1 },
-            { "Charisma", 1},
-            { "HealthPoints", 10}
+            { Attributes.SkillType.Attack, 1 },
+            { Attributes.SkillType.Strength, 1 },
+            { Attributes.SkillType.Defence, 1 },
+            { Attributes.SkillType.Magic, 1 },
+            { Attributes.SkillType.Ranged, 1 },
+            { Attributes.SkillType.Agility, 1 },
+            { Attributes.SkillType.Charisma, 1},
+            { Attributes.SkillType.HealthPoints, 10}
         };
-    
+
+        // Scaling of character
+        sizeOfPlayer = new Vector3(1f, 1f, 1f);
+
     } 
 }

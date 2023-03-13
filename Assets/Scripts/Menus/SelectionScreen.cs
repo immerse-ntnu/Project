@@ -10,9 +10,9 @@ public class SelectionScreen : MonoBehaviour
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button loadGameButton;
 
-    private void Start()
+    private void Update()
     {
-        if (!DataPersistenceManager.instance.HasGameData())
+        if (!DataPersistenceManager.Instance.HasGameData())
         {
             loadGameButton.interactable = false;
         }
@@ -23,7 +23,7 @@ public class SelectionScreen : MonoBehaviour
         DisableButtons();
         
         // Create new game
-        DataPersistenceManager.instance.NewGame();
+        DataPersistenceManager.Instance.NewGame();
         
         // Load the gameplay scene
         SceneManager.LoadSceneAsync("CharacterCreation");
@@ -40,6 +40,4 @@ public class SelectionScreen : MonoBehaviour
         newGameButton.interactable = false;
         loadGameButton.interactable = false;
     }
-    
-    
 }
