@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
     // For being attacked:
     public int maxHealth = 100; // the maximum health of the enemy
     public int currentHealth; // the current health of the enemy
-    
+    public Animation deathAnim;
 
     private void Start()
     {
@@ -29,7 +29,16 @@ public class EnemyHealth : MonoBehaviour
         
         // check if the enemy has died
         if (currentHealth > 0) return;
-        gameObject.SetActive(false); // die
-        Destroy(gameObject, 3);
+        StartCoroutine(Die());
     }
+    
+    private IEnumerator Die()
+    {
+        yield return new WaitForSeconds(3);
+        gameObject.SetActive(false);
+        Destroy(gameObject, 2f);
+    }
+    
+    
+    
 }

@@ -1,41 +1,90 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public Transform player;
-    public float chaseRadius = 10f;
-    public float speed = 2f;
-    private bool _isChasing;
+    public float speed;
+    public float checkRadius;
+    public float attackRadius;
+
+    public bool shouldRotate;
+
+    public LayerMask whatIsPlayer;
+
+    private Transform _target;
+    private Rigidbody2D _rb;
+    private Animator _anim;
+    private Vector2 _movement;
+    public Vector3 dir;
+
+    private bool _isInChaseRange;
+    private bool _isInAttackRange;
+
+    private EnemyHealth health;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
+        _target = GameObject.FindWithTag("Player").transform;
+        health = GetComponent<EnemyHealth>();
     }
 
     private void Update()
     {
-        var distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (!_isInAttackRange)
+        {
+            _anim.SetBool("isChasing", _isInChaseRange);
+        }
+        else if (health.currentHealth <= 0) // if enemy is dead
+        {
+            _anim.SetBool("isDead", true);
+        }
+        else
+        {
+            _anim.SetBool("attacking", _isInAttackRange);
+        }
 
-        _isChasing = distanceToPlayer < chaseRadius;
+        var position1 = transform.position;
+        _isInChaseRange = Physics2D.OverlapCircle(position1, checkRadius, whatIsPlayer.value);
+        _isInAttackRange = Physics2D.OverlapCircle(position1, attackRadius, whatIsPlayer.value);
 
-        // inside the radius do this:
-        if (!_isChasing) return;
-        var transform1 = transform;
-        var position = transform1.position;
-        var direction = (player.position - position).normalized;
-        position += direction * (speed * Time.deltaTime);
-        transform1.position = position;
+        dir = _target.position - position1;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        dir.Normalize();
+        _movement = dir;
+        
+        if (!shouldRotate) return;
+        _anim.SetFloat("X", dir.x);
+        _anim.SetFloat("Y", dir.y);
+
+    }
+    
+    private void FixedUpdate()
+    {
+        if (_isInChaseRange && !_isInAttackRange && health.currentHealth > 0)
+        {
+            MoveCharacter(_movement);
+        }
+
+        if (_isInAttackRange) // stop moving once in attack range
+        {
+            _rb.velocity = Vector2.zero;
+        }
     }
 
+    private void MoveCharacter(Vector2 dir)
+    {
+        Debug.Log("MoveCharacter called");
+        _rb.MovePosition((Vector2)transform.position + (dir * (speed * Time.deltaTime)));
+    }
+    
     // Visualize radius in inspector unity 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, chaseRadius);
+        var position = transform.position;
+        Gizmos.DrawWireSphere(position, checkRadius);
+        Gizmos.DrawWireSphere(position, attackRadius);
     }
-    
 }

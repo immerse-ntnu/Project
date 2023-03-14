@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
+    // For walking
     public Rigidbody2D body;
     private float _horizontal;
     private float _vertical;
@@ -13,13 +14,15 @@ public class PlayerController : MonoBehaviour
     // For attacking enemy
     public float attackRange = 1f; // the range of the player's attack
     public int attackDamage = 50; // the damage the player's attack will do
-    private GameObject enemy;
-    private EnemyHealth _enemyHealth;
+    private readonly int _enemyLayerMask = 1 << 3;
+    private readonly Collider2D[] _enemies = new Collider2D[6];
+
+    // For animation
+    private Animator _mAnimator;
+    private bool _ismAnimatorNotNull;
 
     private void Start()
     {
-        enemy = GameObject.FindGameObjectWithTag("Enemy");
-        _enemyHealth = enemy.GetComponent<EnemyHealth>();
         body = GetComponent<Rigidbody2D>();
     }
 
@@ -30,17 +33,18 @@ public class PlayerController : MonoBehaviour
             _horizontal = Input.GetAxisRaw("Horizontal");
             _vertical = Input.GetAxisRaw("Vertical");
         }
+        
+        if (Input.GetKeyDown(KeyCode.Space)) 
+            Attack();
+            
+    }
 
-        // Only if enemy is alive
- 
-        if (enemy == null) return;
-        var position = enemy.transform.position;
-        var enemyPos = new Vector3(position.x, position.y, position.z);
-
-        // Attack
-        if (!Input.GetKeyDown(KeyCode.Space)) return;
-        if (Vector3.Distance(transform.position, enemy.transform.position) > attackRange) return;
-        _enemyHealth.TakeDamage(attackDamage);
+    private void Attack()
+    {
+        var size = Physics2D.OverlapCircleNonAlloc(transform.position, attackRange, _enemies, _enemyLayerMask);
+        for (var i = 0; i < size; i++)
+            if (_enemies[i].TryGetComponent(out EnemyHealth health))
+                health.TakeDamage(attackDamage);
     }
 
     private void FixedUpdate()
