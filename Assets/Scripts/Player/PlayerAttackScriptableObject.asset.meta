@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< Updated upstream:Assets/Scripts/Player/PlayerAttackScriptableObject.asset.meta
 guid: f8f011c8148c14562bea98770621bae6
-========
-guid: 316b3d02b3f06754eb3d8c33fd6316b9
->>>>>>>> Stashed changes:Assets/Enemy/Right.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
