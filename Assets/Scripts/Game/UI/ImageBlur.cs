@@ -3,7 +3,6 @@ using UnityEngine;
 public class ImageBlur : MonoBehaviour
 {
     [SerializeField] private GameObject blurredImage;
-    [SerializeField] private GameObject stuff;
 
     public void DeBlur()
     {

@@ -9,6 +9,8 @@ TagManager:
   - Character
   - PlayerSprite
   - Enemy
+  - Item
+  - Menu
   layers:
   - Default
   - TransparentFX
@@ -17,9 +19,9 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
-  - 
-  - 
+  - Item
+  - Objects
+  - Background
   - 
   - 
   - 
@@ -45,4 +47,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Objects
+    uniqueID: 3353702237
+    locked: 0
+  - name: Brightness
+    uniqueID: 3210481783
     locked: 0

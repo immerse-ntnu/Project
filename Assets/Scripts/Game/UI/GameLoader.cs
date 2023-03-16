@@ -11,7 +11,7 @@ public class GameLoader : MonoBehaviour
 
     private DataPersistenceManager _dataManager;
 
-    public void LoadMainMenu() // Load main menu buddy
+    public static void LoadMainMenu() // Load main menu buddy
     {
         SceneManager.LoadScene("MainMenu");
     }
@@ -29,4 +29,17 @@ public class GameLoader : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("Game");
     }
+    
+    public void LoadDungeon()
+    {
+        StartCoroutine(Loading());
+    }
+
+    private IEnumerator Loading()
+    {
+        yield return new WaitForSeconds(0.25f);
+        SceneManager.LoadSceneAsync("Dungeon");
+
+    }
+
 }

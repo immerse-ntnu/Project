@@ -21,6 +21,12 @@ public class EnemyController : MonoBehaviour
     private bool _isInAttackRange;
 
     private EnemyHealth health;
+    private Health targetHealth;
+    
+    private float attackCooldown = 2;
+    private float attackDelay = 1;
+    private float _lastAttackTime;
+    private float _lastAttackStartTime;
 
     private void Start()
     {
@@ -28,21 +34,19 @@ public class EnemyController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _target = GameObject.FindWithTag("Player").transform;
         health = GetComponent<EnemyHealth>();
+        targetHealth = GameObject.FindWithTag("Player").GetComponent<Health>();
     }
 
     private void Update()
     {
-        if (!_isInAttackRange)
-        {
-            _anim.SetBool("isChasing", _isInChaseRange);
-        }
-        else if (health.currentHealth <= 0) // if enemy is dead
+        
+        if (health.currentHealth <= 0) // if enemy is dead
         {
             _anim.SetBool("isDead", true);
         }
-        else
+        else if (_isInAttackRange != true)
         {
-            _anim.SetBool("attacking", _isInAttackRange);
+            _anim.SetBool("isChasing", _isInChaseRange);
         }
 
         var position1 = transform.position;
@@ -53,11 +57,12 @@ public class EnemyController : MonoBehaviour
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         dir.Normalize();
         _movement = dir;
-        
-        if (!shouldRotate) return;
-        _anim.SetFloat("X", dir.x);
-        _anim.SetFloat("Y", dir.y);
 
+        if (shouldRotate && health.currentHealth > 0 && _isInAttackRange != true)
+        {
+            _anim.SetFloat("X", dir.x);
+            _anim.SetFloat("Y", dir.y); 
+        }
     }
     
     private void FixedUpdate()
@@ -67,16 +72,40 @@ public class EnemyController : MonoBehaviour
             MoveCharacter(_movement);
         }
 
-        if (_isInAttackRange) // stop moving once in attack range
+        if (_isInAttackRange)
         {
-            _rb.velocity = Vector2.zero;
+            if (Time.time - _lastAttackTime >= attackCooldown)
+            {
+                if (Time.time - _lastAttackStartTime >= attackDelay)
+                {
+                    _lastAttackTime = Time.time;
+                    Attack();
+                }
+                else
+                {
+                    _rb.velocity = Vector2.zero;
+                    _anim.SetBool("attacking", false);
+                }
+            }
+            else
+            {
+                _rb.velocity = Vector2.zero;
+                _anim.SetBool("attacking", false);
+            }
         }
     }
 
     private void MoveCharacter(Vector2 dir)
     {
-        Debug.Log("MoveCharacter called");
         _rb.MovePosition((Vector2)transform.position + (dir * (speed * Time.deltaTime)));
+    }
+    
+    private void Attack()
+    {
+        _rb.velocity = Vector2.zero;
+        _anim.SetBool("attacking", true);
+        targetHealth.TakeDamage(10);
+        
     }
     
     // Visualize radius in inspector unity 

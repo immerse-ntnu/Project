@@ -9,14 +9,15 @@ public class EnemyHealth : MonoBehaviour
     // For being attacked:
     public int maxHealth = 100; // the maximum health of the enemy
     public int currentHealth; // the current health of the enemy
-    public Animation deathAnim;
-
+    public GameObject lootPrefab;
+    private SpriteRenderer sprite;
+    
     private void Start()
     {
         currentHealth = maxHealth;
+        sprite = GetComponent<SpriteRenderer>();
     }
-
-
+    
     // ReSharper disable Unity.PerformanceAnalysis
     public void TakeDamage(int damage)
     {
@@ -24,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth > 0)
         {
             currentHealth -= damage;
-            Debug.Log("Health: " + currentHealth);
+            StartCoroutine(FlashRed());
         }
         
         // check if the enemy has died
@@ -34,9 +35,19 @@ public class EnemyHealth : MonoBehaviour
     
     private IEnumerator Die()
     {
-        yield return new WaitForSeconds(3);
+        // spawn loot prefab
+        sprite.color = Color.black;
+        yield return new WaitForSeconds(1);
         gameObject.SetActive(false);
         Destroy(gameObject, 2f);
+        Instantiate(lootPrefab, transform.position, Quaternion.identity);
+    }
+    
+    public IEnumerator FlashRed()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.25f); // wait for half a second
+        sprite.color = Color.white;
     }
     
     

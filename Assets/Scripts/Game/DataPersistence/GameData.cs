@@ -18,6 +18,8 @@ public class GameData
 
     public Dictionary<Attributes.SkillType, int> Skills;
 
+    public int gems;
+
     // Constructor
     public GameData()
     {
@@ -42,6 +44,5 @@ public class GameData
 
         // Scaling of character
         sizeOfPlayer = new Vector3(1f, 1f, 1f);
-
     } 
 }
